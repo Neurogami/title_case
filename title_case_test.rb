@@ -3,7 +3,7 @@ require 'test/unit'
 require 'title_case'
 
 class String
-  include TitleCase
+  include Neurogami::TitleCase
 end
 
 class TitleCaseTest < Test::Unit::TestCase

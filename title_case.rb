@@ -18,6 +18,8 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 
+module Neurogami
+
 module TitleCase
 
   # A regular expression to match small words that should not be
@@ -79,7 +81,7 @@ module TitleCase
     words.join(" ")
   end
 end
-
+end
 if $0 == __FILE__
   
   # If this file is being executed, read in from the command line
@@ -93,7 +95,7 @@ if $0 == __FILE__
   else
     
     class String
-      include TitleCase
+      include Neurogami::TitleCase
     end
   
     puts input.title_case
