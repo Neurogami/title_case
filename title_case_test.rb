@@ -12,11 +12,21 @@ class TitleCaseTest < Test::Unit::TestCase
       "Q&A With Steve Jobs: 'That's What Happens In Technology'".title_case
   end
   
-  def test_atts_problem
-    assert_equal "What Is AT&T's Problem?", 
-      "What Is AT&T's Problem?".title_case
+  def test_att_problem
+    assert_equal "What Is the Problem AT&T Will Find?", 
+      "what is The problem At&t will find?".title_case
   end
-  
+
+  def test_nasa_detection
+    assert_equal "NASA Detects Uppercase Planet", 
+      "Nasa detects uppercase planet".title_case
+  end
+
+  def test_cern_discovery
+    assert_equal "Amazing Stuff at CERN This Week.", 
+      "Amazing stuff at cern this week.".title_case
+  end
+
   def test_apple_deal_falls_through
     assert_equal "Apple Deal With AT&T Falls Through", 
       "Apple Deal With AT&T Falls Through".title_case

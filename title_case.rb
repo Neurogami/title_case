@@ -23,6 +23,7 @@ module TitleCase
   # A regular expression to match small words that should not be
   # titleized.
   SMALL_WORDS_RE = /^(a|an|and|as|at|but|by|en|for|if|in|of|on|or|the|to|v\.?|via|vs\.?)$/
+  KNOWN_ALLCAPS_ORGS = /^(NASA|FBI|SEC|AT&T|CERN\.?)$/
   
   def titleize_if_appropriate
 
@@ -52,9 +53,12 @@ module TitleCase
         colon_preceding = false
         word.titleize_if_appropriate
       elsif word.downcase[SMALL_WORDS_RE]
-        
         # If this is a small word, make it lowercase.
         word.downcase
+      elsif word.upcase[KNOWN_ALLCAPS_ORGS]
+        
+        # If this is an organization that uses ALL CAPS, upcase it
+        word.upcase 
       else
         
         # In all other cases, titleize the word.
